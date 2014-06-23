@@ -1,0 +1,16 @@
+// override
+.x-btn-inner {
+    text-overflow: ellipsis;
+}
+.x-btn-default-toolbar-small {
+    //border-color: rgba(90, 90, 90, 0.2);
+}
+
+// iconing Ext.iconCls:
+.sm-clear 			{ background-image: url(../icons/iconCls/sm/wand.png) }
+.sm-company 		{ background-image: url(../icons/iconCls/sm/building.png) }
+.sm-company-add 	{ background-image: url(../icons/iconCls/sm/building_add.png) }
+.sm-company-edit 	{ background-image: url(../icons/iconCls/sm/building_edit.png) }
+.sm-company-delete 	{ background-image: url(../icons/iconCls/sm/building_delete.png) }
+.sm-news    		{ background-image: url(../icons/iconCls/sm/feed.png) }
+.sm-search  		{ background-image: url(../icons/iconCls/sm/find.png) }
