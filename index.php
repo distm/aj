@@ -1,9 +1,9 @@
 <html>
     <head>
-        <title>Admin.New</title>
+        <title>AJ</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" type="text/css" href="ext4/resources/css/ext-all.css" />
+        <link rel="stylesheet" type="text/css" href="ext4/resources/css/ext-all-neptune.css" />
         <link rel="stylesheet" type="text/css" href="shared/css/styles.css" />
     </head>
     <body>
@@ -23,6 +23,11 @@
                 ],
                 name: "AJ",
                 appFolder: "app",
+                
+                controllers: [
+                    'Desktop'
+                ],
+                
                 launch: function() {
                     
                     Ext.create("Ext.container.Viewport", {
@@ -30,12 +35,15 @@
                         items: [
                             {
                                 region: "north",
-                                html: "north"
+                                xtype: "box",
+                                id: "app-header",
+                                html: "Admin"
                             },
                             {
                                 region: "west",
-                                html: "west",
-                                width: 200
+                                xtype: "mainmenu",
+                                split: true,
+                                width: 230
                             },
                             {
                                 region: "center",

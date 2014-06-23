@@ -21,3 +21,9 @@
 
 .sm-search {
   background-image: url(../icons/iconCls/sm/find.png); }
+
+#app-header {
+  color: #FFF;
+  font-size: 22px;
+  font-weight: 200;
+  padding: 8px 15px; }
