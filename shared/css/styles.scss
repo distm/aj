@@ -5,6 +5,12 @@
 .x-btn-default-toolbar-small {
     //border-color: rgba(90, 90, 90, 0.2);
 }
+#mainmenu {
+    .x-panel-body,
+    .x-grid-header-ct {
+        border-color: #157fcc !important;
+    }
+}
 
 // iconing Ext.iconCls:
 .sm-clear 			{ background-image: url(../icons/iconCls/sm/wand.png) }

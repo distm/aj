@@ -1,9 +1,10 @@
 Ext.define("AJ.view.MainMenu", {
     extend: "Ext.tree.Panel",
     alias: "widget.mainmenu",
+    id: "mainmenu",
     
     title: "Main Menu",
-    store: "MainMenu",
+    store: "StoreMainMenu",
     rootVisible: false,
     
     initComponent: function(){

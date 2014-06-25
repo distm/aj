@@ -1,6 +1,10 @@
 .x-btn-inner {
   text-overflow: ellipsis; }
 
+#mainmenu .x-panel-body,
+#mainmenu .x-grid-header-ct {
+  border-color: #157fcc !important; }
+
 .sm-clear {
   background-image: url(../icons/iconCls/sm/wand.png); }
 

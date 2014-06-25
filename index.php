@@ -9,7 +9,11 @@
     <body>
 
         <script type="text/javascript" src="ext4/ext-all.js"></script>
+        <script type="text/javascript" src="shared/js/lang-id.js"></script>
         <script type="text/javascript">
+            var BASE_URL = location.protocol +"//"+ location.host +"/aj/",
+                API_URL = BASE_URL +"api-server/";
+            
             Ext.Loader.setConfig({
                 disableCaching: false,
                 enabled: true,
@@ -25,7 +29,8 @@
                 appFolder: "app",
                 
                 controllers: [
-                    'Desktop'
+                    'Desktop',
+                    'Company'
                 ],
                 
                 launch: function() {
@@ -43,12 +48,12 @@
                                 region: "west",
                                 xtype: "mainmenu",
                                 split: true,
-                                width: 230
+                                width: 230,
+                                collapsible: true
                             },
                             {
                                 region: "center",
-                                border: 0,
-                                id: "main-container"
+                                xtype: "maintab"
                             }
                         ]
                     });
