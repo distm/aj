@@ -3,15 +3,15 @@ Ext.define("AJ.controller.Desktop", {
     
     stores: [
         'StoreMainMenu',
-        'member.StoreCompany'
+        'StoreCompany'
     ],
     views: [
-        'MainMenu',
-        'MainTab',
-        'menu.member.Company',
-        'menu.member.Seeker',
-        'menu.Statistic',
-        'menu.Blog'
+        'desktop.MainMenu',
+        'desktop.MainTab',
+        'company.Grid',
+        'seeker.Grid',
+        'statistic.Panel',
+        'blog.Panel'
     ],
     
     init: function(){

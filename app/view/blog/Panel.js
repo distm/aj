@@ -1,4 +1,4 @@
-Ext.define("AJ.view.menu.Blog", {
+Ext.define("AJ.view.blog.Panel", {
     extend: "Ext.panel.Panel",
     alias: "widget.panel-blog",
     id: "panel-blog",

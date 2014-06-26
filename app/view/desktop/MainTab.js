@@ -1,4 +1,4 @@
-Ext.define("AJ.view.MainTab", {
+Ext.define("AJ.view.desktop.MainTab", {
     extend: "Ext.tab.Panel",
     alias: "widget.maintab",
     id: "maintab",

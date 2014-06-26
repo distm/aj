@@ -1,4 +1,4 @@
-Ext.define("AJ.view.menu.member.Seeker", {
+Ext.define("AJ.view.seeker.Grid", {
     extend: "Ext.panel.Panel",
     alias: "widget.panel-seeker",
     id: "panel-seeker",

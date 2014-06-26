@@ -2,7 +2,9 @@ Ext.define("AJ.controller.Company", {
     extend: "Ext.app.Controller",
     
     views: [
-        'menu.member.CompanyContext'
+        "company.GridContext",
+        "company.WindowDetail",
+        "company.FormDetail"
     ],
     
     init: function(){
@@ -11,16 +13,15 @@ Ext.define("AJ.controller.Company", {
             
             // grid company contextmenu
             "panel-company": {
-                /**
-                containercontextmenu: function(view, e){
-                    e.stopEvent();
-                },/**/
                 itemcontextmenu: this.showContext
             },
             
             // context item click
             "contextmenu-company [action='detail']": {
                 click: this.detailCompany
+            },
+            "contextmenu-company [action='show_jobs']": {
+                click: this.showJobs
             }
         });
         
@@ -38,8 +39,55 @@ Ext.define("AJ.controller.Company", {
     },
     
     detailCompany: function(){
-        var rec = this.selectedRecord;
-        console.log(rec);
+        var rec = this.selectedRecord,
+            win = Ext.getCmp("company-detail");
+        
+        if(! win){
+            win = Ext.widget("company-detail");
+        }
+        
+        win.setTitle(rec.get("name"));
+        win.show();
+        
+        var tab = Ext.getCmp("tab-company-detail"),
+            form = tab.down("company-formdetail");
+
+        if(! form){
+            form = Ext.widget("company-formdetail", {
+                margin: "-1 -1 0"
+            });
+            tab.add(form);
+        }
+
+        tab.setActiveTab(form);
+        form.loadRecord(rec);
+    },
+    
+    showJobs: function(){
+        var rec = this.selectedRecord,
+            win = Ext.getCmp("company-detail");
+        
+        if(! win){
+            win = Ext.widget("company-detail");
+        }
+        
+        win.setTitle(rec.get("name"));
+        win.show();
+        
+        var tab = Ext.getCmp("tab-company-detail"),
+            form = Ext.getCmp("company-jobs");
+
+        if(! form){
+            form = Ext.create("Ext.panel.Panel", {
+                title: "Jobs",
+                id: "company-jobs",
+                margin: "-1 -1 0",
+                html: rec.get("description")
+            });
+            tab.add(form);
+        }
+
+        tab.setActiveTab(form);
     }
     
 });

@@ -1,4 +1,4 @@
-Ext.define("AJ.store.member.StoreCompany", {
+Ext.define("AJ.store.StoreCompany", {
     extend: "Ext.data.Store",
     
     fields: [

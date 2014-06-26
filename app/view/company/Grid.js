@@ -1,10 +1,10 @@
-Ext.define("AJ.view.menu.member.Company", {
+Ext.define("AJ.view.company.Grid", {
     extend: "Ext.grid.Panel",
     alias: "widget.panel-company",
     id: "panel-company",
     
     title: Langs.company,
-    store: "member.StoreCompany",
+    store: "StoreCompany",
     initComponent: function(){
         
         // define columns
@@ -22,7 +22,7 @@ Ext.define("AJ.view.menu.member.Company", {
         this.dockedItems = [
             {
                 xtype: "pagingtoolbar",
-                store: "member.StoreCompany",
+                store: "StoreCompany",
                 displayInfo: true,
                 dock: "bottom"
             }
