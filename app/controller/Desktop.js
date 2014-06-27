@@ -2,16 +2,19 @@ Ext.define("AJ.controller.Desktop", {
     extend: "Ext.app.Controller",
     
     stores: [
-        'StoreMainMenu',
-        'StoreCompany'
+        "StoreMainMenu",
+        "StoreCompany",
+        "StoreBlog"
     ],
     views: [
-        'desktop.MainMenu',
-        'desktop.MainTab',
-        'company.Grid',
-        'seeker.Grid',
-        'statistic.Panel',
-        'blog.Panel'
+        "desktop.MainMenu",
+        "desktop.MainTab",
+        "company.Grid",
+        "seeker.Grid",
+        "statistic.Panel",
+        "blog.Panel",
+        "blog.BlogList",
+        "blog.BlogDetail"
     ],
     
     init: function(){

@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="ext4/resources/css/ext-all-neptune.css" />
+        <link rel="stylesheet" type="text/css" href="app/ux/form/HtmlEditor/css/iframe_styles.css" />
         <link rel="stylesheet" type="text/css" href="shared/css/styles.css" />
     </head>
     <body>
@@ -23,14 +24,16 @@
             });
             Ext.application({
                 requires: [
-                    "Ext.container.Viewport"
+                    "Ext.container.Viewport",
+                    "Ext.ux.form.HtmlEditor.imageUpload"
                 ],
                 name: "AJ",
                 appFolder: "app",
                 
                 controllers: [
-                    'Desktop',
-                    'Company'
+                    "Desktop",
+                    "Company",
+                    "Blog"
                 ],
                 
                 launch: function() {
