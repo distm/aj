@@ -1,4 +1,4 @@
-Ext.define("AJ.view.company.WindowDetail", {
+Ext.define("AJ.view.company.CompanyDetail", {
     extend: "Ext.window.Window",
     alias: "widget.company-detail",
     id: "company-detail",
@@ -6,7 +6,8 @@ Ext.define("AJ.view.company.WindowDetail", {
     height: 350,
     width: 750,
     layout: "fit",
-    
+    maximizable: true,
+    maximized: true,
     
     initComponent: function(){
         

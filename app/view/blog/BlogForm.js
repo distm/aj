@@ -4,6 +4,7 @@ Ext.define("AJ.view.blog.BlogForm", {
     id: "blogform",
     
     maximizable: true,
+    maximized: false,
     layout: "fit",
     width: 600,
     height: 300,
@@ -42,7 +43,7 @@ Ext.define("AJ.view.blog.BlogForm", {
                     {
                         xtype: "htmleditor",
                         allowBlank: false,
-                        name: "content",
+                        name: "blog_content",
                         fieldLabel: lang("content"),
                         labelAlign: "top",
                         plugins: [
@@ -63,12 +64,7 @@ Ext.define("AJ.view.blog.BlogForm", {
         this.buttons = [
             {
                 text: lang("btn_ok"),
-                handler: function(btn){
-                    var win = btn.up("window"),
-                        form = win.down("form");
-                
-                    console.log(form.getValues());
-                }
+                action: "save_blog"
             },
             {
                 text: lang("btn_cancel"),

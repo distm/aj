@@ -2,9 +2,9 @@ Ext.define("AJ.controller.Company", {
     extend: "Ext.app.Controller",
     
     views: [
-        "company.GridContext",
-        "company.WindowDetail",
-        "company.FormDetail"
+        "company.CompanyListContext",
+        "company.CompanyDetail",
+        "company.CompanyForm"
     ],
     
     init: function(){
@@ -12,7 +12,7 @@ Ext.define("AJ.controller.Company", {
         this.control({
             
             // grid company contextmenu
-            "panel-company": {
+            "companylist": {
                 itemcontextmenu: this.showContext
             },
             
@@ -22,6 +22,11 @@ Ext.define("AJ.controller.Company", {
             },
             "contextmenu-company [action='show_jobs']": {
                 click: this.showJobs
+            },
+            
+            // form detail
+            "company-formdetail button[action='save_company']": {
+                click: this.saveCompany
             }
         });
         
@@ -61,6 +66,40 @@ Ext.define("AJ.controller.Company", {
 
         tab.setActiveTab(form);
         form.loadRecord(rec);
+    },
+    
+    saveCompany: function(btn){
+        var rec = this.selectedRecord,
+            win = btn.up("window"),
+            form = win.down("form");
+        
+        form.submit({
+            clientValidation: true,
+            url: API_URL + "company/save",
+            params: {
+                mode: "update",
+                company_id: rec.get("company_id")
+            },
+            success: function(frm, action) {
+                Ext.Msg.alert('Success', action.result.message, function() {
+                    win.hide();
+                    Ext.getCmp("companylist").getStore().reload();
+                });
+            },
+            failure: function(frm, action) {
+                switch (action.failureType) {
+                    case Ext.form.action.Action.CLIENT_INVALID:
+                        Ext.Msg.alert(lang("failure"), lang("msg_client_invalid"));
+                        break;
+                    case Ext.form.action.Action.CONNECT_FAILURE:
+                        Ext.Msg.alert(lang("failure"), lang("msg_connect_failure"));
+                        break;
+                    case Ext.form.action.Action.SERVER_INVALID:
+                        Ext.Msg.alert(lang("failure"), action.result.message);
+                        break;
+                }
+            }
+        });
     },
     
     showJobs: function(){

@@ -9,7 +9,7 @@ Ext.define("AJ.controller.Desktop", {
     views: [
         "desktop.MainMenu",
         "desktop.MainTab",
-        "company.Grid",
+        "company.CompanyList",
         "seeker.Grid",
         "statistic.Panel",
         "blog.Panel",

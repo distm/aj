@@ -1,7 +1,7 @@
-Ext.define("AJ.view.company.Grid", {
+Ext.define("AJ.view.company.CompanyList", {
     extend: "Ext.grid.Panel",
-    alias: "widget.panel-company",
-    id: "panel-company",
+    alias: "widget.companylist",
+    id: "companylist",
     
     title: Langs.company,
     store: "StoreCompany",

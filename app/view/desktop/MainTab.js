@@ -17,7 +17,7 @@ Ext.define("AJ.view.desktop.MainTab", {
                 }
             }/**/,
             {
-                xtype: "panel-blog"
+                xtype: "companylist"
             }/**/
         ];
         

@@ -3,6 +3,7 @@ window.Langs = {
     address:                        "Alamat",
     blog:                           "Blog",
     company:                        "Perusahaan",
+    confirm:                        "Konfirmasi",
     content:                        "Isi",
     country:                        "Country",
     city:                           "Kota",
@@ -12,6 +13,7 @@ window.Langs = {
     description:                    "Deskripsi",
     detail:                         "Detail",
     email:                          "Email",
+    failure:                        "Kesalahan",
     inactive:                       "Tidak Aktif",
     industry:                       "Industri",
     info:                           "Info",
@@ -24,6 +26,7 @@ window.Langs = {
     show_jobs:                      "Lowongan",
     statistic:                      "Statistik",
     status:                         "Status",
+    success:                        "Berhasil",
     summary:                        "Ringkasan",
     tags:                           "Kata Kunci",
     title:                          "Judul",
@@ -35,8 +38,15 @@ window.Langs = {
     btn_create_new_blog:            "Buat Blog Baru",
     btn_delete:                     "Hapus",
     btn_edit:                       "Edit",
-    btn_submit:                     "Submit",
-    btn_ok:                         "Oke"
+    btn_save:                       "Simpan",
+    btn_save_change:                "Simpan Perubahan",
+    btn_submit:                     "Kirim",
+    btn_ok:                         "Oke",
+    
+    msg_client_invalid:             "Beberapa isian tidak benar.",
+    msg_connect_failure:            "Koneksi server mengalami gangguan.",
+    msg_server_error:               "Server mengalami masalah.",
+    msg_sure_for_deletion:          "Yakin akan menghapus data ini?"
 };
 
 window.lang = function(line){

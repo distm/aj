@@ -1,4 +1,4 @@
-Ext.define("AJ.view.company.FormDetail", {
+Ext.define("AJ.view.company.CompanyForm", {
     extend: "Ext.form.Panel",
     alias: "widget.company-formdetail",
     id: "company-formdetail",
@@ -52,7 +52,7 @@ Ext.define("AJ.view.company.FormDetail", {
                     {
                         xtype: "textarea",
                         height: 200,
-                        name: "decription",
+                        name: "description",
                         labelAlign: "top",
                         fieldLabel: lang("description")
                     }
@@ -82,16 +82,13 @@ Ext.define("AJ.view.company.FormDetail", {
 
         this.buttons = [
             {
-                text: "Submit",
-                handler: function(btn){
-                    var val = btn.up("form").getValues();
-                    console.log(val);
-                }
+                text: lang("btn_save_change"),
+                action: "save_company"
             },
             {
-                text: "Cancel",
+                text: lang("btn_cancel"),
                 handler: function(btn){
-                    btn.up("window").hide();
+                    btn.up("window").close();
                 }
             }
         ];

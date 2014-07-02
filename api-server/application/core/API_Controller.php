@@ -46,7 +46,10 @@ class API_Controller extends CI_Controller {
             // remove message
             if($response['success'] === TRUE)
             {
-                unset($response['message']);
+                if($response['message'] === 'Data not found.')
+                {
+                    unset($response['message']);
+                }
             }
             else
             {

@@ -1,4 +1,4 @@
-Ext.define("AJ.view.company.GridContext", {
+Ext.define("AJ.view.company.CompanyListContext", {
     extend: "Ext.menu.Menu",
     alias: "widget.contextmenu-company",
     id: "contextmenu-company",
