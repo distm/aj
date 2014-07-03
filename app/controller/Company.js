@@ -4,7 +4,8 @@ Ext.define("AJ.controller.Company", {
     views: [
         "company.CompanyListContext",
         "company.CompanyDetail",
-        "company.CompanyForm"
+        "company.CompanyForm",
+        "company.CompanyJobs"
     ],
     
     init: function(){
@@ -117,11 +118,9 @@ Ext.define("AJ.controller.Company", {
             form = Ext.getCmp("company-jobs");
 
         if(! form){
-            form = Ext.create("Ext.panel.Panel", {
+            form = Ext.widget("company-jobs", {
                 title: "Jobs",
-                id: "company-jobs",
-                margin: "-1 -1 0",
-                html: rec.get("description")
+                margin: "-1 -1 0"
             });
             tab.add(form);
         }
