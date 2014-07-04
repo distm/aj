@@ -28,3 +28,25 @@
     font-weight: 200;
     padding: 8px 15px;
 }
+
+// table
+table {
+    &.table-detail {
+        width: 100%;
+        border-spacing: 0;
+        
+        tr {
+            td {
+                font-size: 13px;
+                vertical-align: top;
+                width: 60%;
+                padding: 3px;
+                
+                &:first-child {
+                    font-weight: bold;
+                    width: 40%;
+                }
+            }
+        }
+    }
+}

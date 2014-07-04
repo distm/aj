@@ -1,14 +1,24 @@
 Ext.define("AJ.controller.Company", {
     extend: "Ext.app.Controller",
     
+    stores: [
+        "StoreCompanyJobs",
+        "StoreApplicant"
+    ],
+    
     views: [
         "company.CompanyListContext",
         "company.CompanyDetail",
         "company.CompanyForm",
-        "company.CompanyJobs"
+        "company.CompanyJobs",
+        "company.CompanyJobsList",
+        "company.CompanyJobsListContext",
+        "job.ApplicantList"
     ],
     
     init: function(){
+        
+        Ext.widget("company-detail").show();
         
         this.control({
             
@@ -16,13 +26,27 @@ Ext.define("AJ.controller.Company", {
             "companylist": {
                 itemcontextmenu: this.showContext
             },
+            "company-jobslist": {
+                itemcontextmenu: this.showJobsListContext,
+                selectionchange: this.updateApaplicantProxyStore
+            },
             
-            // context item click
+            // companylist context
             "contextmenu-company [action='detail']": {
                 click: this.detailCompany
             },
             "contextmenu-company [action='show_jobs']": {
                 click: this.showJobs
+            },
+            
+            // company jobs list context
+            "contextmenu-company-jobslist [action='detail']": {
+                click: function(){
+                    this.getApplication().getController('Job').showJobDetail(this.selectedRecordJob);
+                }
+            },
+            "contextmenu-company-jobslist [action='show_applicant']": {
+                click: this.showJobsApplicant
             },
             
             // form detail
@@ -42,6 +66,47 @@ Ext.define("AJ.controller.Company", {
         
         this.selectedRecord = record;
         menu.showAt(e.getXY());
+    },
+    
+    showJobsListContext: function(view, record, item, index, e){
+        e.stopEvent();
+        var menu = Ext.getCmp("contextmenu-company-jobslist");
+        if(! menu){
+            menu = Ext.widget("contextmenu-company-jobslist");
+        }
+        
+        this.selectedRecordJob = record;
+        menu.showAt(e.getXY());
+    },
+    
+    showJobsApplicant: function(){
+        var rec =this.selectedRecordJob,
+                grid = Ext.getCmp("applicantlist"),
+                store = grid.getStore();
+        
+        if(grid.getCollapsed()){
+            var title = grid.title.split("&rsaquo;");
+            grid.setTitle(title[0].trim() +" &rsaquo; "+ rec.get("title"));
+            grid.expand();
+        }
+        
+        store.on("beforeload", function(store){
+            store.getProxy().extraParams = {};
+            store.getProxy().extraParams.job_id = rec.get("job_id");
+        });
+        store.load();
+    },
+    
+    updateApaplicantProxyStore: function(sm, record){
+        var grid = Ext.getCmp("applicantlist");
+        if(! grid.getCollapsed()){
+            var title = grid.title.split("&rsaquo;");
+            grid.setTitle(title[0].trim() +" &rsaquo; "+ record[0].get("title"));
+            grid.getStore().on("beforeload", function(store){
+                store.getProxy().extraParams = {};
+                store.getProxy().extraParams.job_id = record[0].get("job_id");
+            });
+        }
     },
     
     detailCompany: function(){

@@ -3,22 +3,36 @@ Ext.define("AJ.view.company.CompanyJobs", {
     alias: "widget.company-jobs",    
     id: "company-jobs",    
     
-    title: "Jobs",
+    title: lang("job_list"),
     layout: "border",
+    border: 1,
+    margin: "-1 -1 0",
     
     initComponent: function(){
         
         this.items = [
             {
-                xtype: "panel",
-                title: "Center Panel",
+                xtype: "company-jobslist",
+                margin: "1 0 -1 -1",
                 region: "center"
             },
             {
-                xtype: "panel",
-                title: "East Panel",
-                width: "40%",
-                region: "east"
+                xtype: "applicantlist",
+                collapsible: true,
+                collapsed: true,
+                split: true,
+                height: "50%",
+                margin: "0 -1 -1",
+                region: "south"
+            }
+        ];
+        
+        this.buttons = [
+            {
+                text: lang("btn_close"),
+                handler: function(btn){
+                    btn.up("window").close();
+                }
             }
         ];
         

@@ -15,7 +15,12 @@ Ext.define("AJ.view.company.CompanyDetail", {
             {
                 xtype: "tabpanel",
                 border: 0,
-                id: "tab-company-detail"
+                id: "tab-company-detail",
+                items: [
+                    {
+                        xtype: "company-jobs"
+                    }
+                ]
                 
                 // uncomment for classic theme
                 /**,listeners: {

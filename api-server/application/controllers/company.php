@@ -8,7 +8,10 @@ class Company extends API_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model('company_model');
+        $this->load->model(array(
+            'company_model',
+            'job_model'
+        ));
     }
     
     function index()
@@ -17,6 +20,25 @@ class Company extends API_Controller {
         $this->response(array(
             'data' => $companies,
             'total' => 1
+        ));
+    }
+    
+    function jobs()
+    {
+        $start = (int)$this->input->post('start', TRUE);
+        $limit = (int)$this->input->post('limit', TRUE);
+        if($limit === 0)
+        {
+            $limit = 25;
+        }
+        
+        $company_id = $this->input->post('company_id', TRUE);
+        $company_id = 1;
+        
+        $jobs = $this->job_model->get_by_company($company_id, $limit, $start);
+        $this->response(array(
+            'data' => $jobs,
+            'total' => $this->job_model->total_by_company($company_id)
         ));
     }
     

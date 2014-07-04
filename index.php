@@ -33,7 +33,8 @@
                 controllers: [
                     "Desktop",
                     "Company",
-                    "Blog"
+                    "Blog",
+                    "Job"
                 ],
                 
                 launch: function() {
