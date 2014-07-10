@@ -10,6 +10,7 @@
     <body>
 
         <script type="text/javascript" src="ext4/ext-all.js"></script>
+        <script type="text/javascript" src="ext4/locale/ext-lang-id.js"></script>
         <script type="text/javascript" src="shared/js/lang-id.js"></script>
         <script type="text/javascript">
             var BASE_URL = location.protocol +"//"+ location.host +"/aj/",

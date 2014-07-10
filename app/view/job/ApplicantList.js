@@ -11,7 +11,7 @@ Ext.define("AJ.view.job.ApplicantList", {
             {xtype: "rownumberer", width: 30},
             {text: lang("title"),      width: 200, dataIndex: "job_title"},
             {text: lang("name"),       width: 150, dataIndex: "first_name"},
-            {text: lang("email"),      width: 130, dataIndex: "email"},
+            {text: lang("email"),      width: 200, dataIndex: "email"},
             {text: lang("date_apply"), width: 120, dataIndex: "date_create",   xtype: "datecolumn",   format: "d-m-Y"}
         ];
         this.dockedItems = [

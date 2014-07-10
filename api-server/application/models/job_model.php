@@ -5,6 +5,32 @@ if(!defined('BASEPATH'))
 
 class Job_model extends CI_Model {
     
+    function get_applicant($job_id='', $limit=25, $start=0)
+    {
+        if(! $job_id)
+        {
+            return FALSE;
+        }
+        
+        // select field
+        $select = array(
+            'ja.job_apply_id, ja.seeker_id, ja.job_id, ja.date_create',
+            's.first_name, s.last_name, s.email',
+            'j.title AS job_title'
+        );
+        
+        // get
+        $get = $this->db->select(implode(', ', $select))
+                        ->from('job_apply ja')
+                        ->join('job j', 'ja.job_id=j.job_id', 'left')
+                        ->join('seeker s', 'ja.seeker_id=s.seeker_id', 'left')
+                        ->where('ja.job_id', $job_id)
+                        ->limit($limit, $start)
+                        ->get();
+        
+        return ($get && $get->num_rows()>0) ? $get->result_array() : FALSE;
+    }
+    
     function get_by_company($company_id='', $limit=25, $start=0)
     {
         if(! $company_id)
