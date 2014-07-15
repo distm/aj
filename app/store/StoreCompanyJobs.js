@@ -21,7 +21,7 @@ Ext.define("AJ.store.StoreCompanyJobs", {
         {name: "date_modified",     type: "date",   format: "c"}
     ],
     
-    autoLoad: true,
+    autoLoad: false,
     proxy: {
         type: "ajax",
         url: API_URL +"company/jobs",

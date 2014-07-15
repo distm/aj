@@ -4,13 +4,14 @@ Ext.define("AJ.controller.Desktop", {
     stores: [
         "StoreMainMenu",
         "StoreCompany",
+        "StoreSeeker",
         "StoreBlog"
     ],
     views: [
         "desktop.MainMenu",
         "desktop.MainTab",
         "company.CompanyList",
-        "seeker.Grid",
+        "seeker.SeekerList",
         "statistic.Panel",
         "blog.Panel",
         "blog.BlogList",
@@ -38,7 +39,7 @@ Ext.define("AJ.controller.Desktop", {
     
     mainMenuClick: function(view, record){
         if(record.get("leaf")){
-            var panel_id = "panel-"+ record.get("id"),
+            var panel_id = record.get("id"),
                 maintab = Ext.getCmp("maintab"),
                 tab = Ext.getCmp(panel_id);
             

@@ -3,11 +3,11 @@ Ext.define("AJ.view.company.CompanyDetail", {
     alias: "widget.company-detail",
     id: "company-detail",
     
-    height: 350,
+    height: 450,
     width: 750,
     layout: "fit",
     maximizable: true,
-    maximized: true,
+    maximized: false,
     
     initComponent: function(){
         
@@ -16,11 +16,7 @@ Ext.define("AJ.view.company.CompanyDetail", {
                 xtype: "tabpanel",
                 border: 0,
                 id: "tab-company-detail",
-                items: [
-                    {
-                        xtype: "company-jobs"
-                    }
-                ]
+                items: []
                 
                 // uncomment for classic theme
                 /**,listeners: {

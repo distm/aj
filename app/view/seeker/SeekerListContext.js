@@ -1,7 +1,7 @@
-Ext.define("AJ.view.company.CompanyListContext", {
+Ext.define("AJ.view.seeker.SeekerListContext", {
     extend: "Ext.menu.Menu",
-    alias: "widget.contextmenu-company",
-    id: "contextmenu-company",
+    alias: "widget.contextmenu-seeker",
+    id: "contextmenu-seeker",
     
     initComponent: function(){
         
@@ -11,13 +11,13 @@ Ext.define("AJ.view.company.CompanyListContext", {
                 menu: [
                     {
                         text: lang("active"),
-                        id: "company-status-active",
-                        action: "update-company-status"
+                        id: "seeker-status-active",
+                        action: "update-seeker-status"
                     },
                     {
                         text: lang("pending"),
-                        id: "company-status-pending",
-                        action: "update-company-status"
+                        id: "seeker-status-pending",
+                        action: "update-seeker-status"
                     }
                 ]
             },
@@ -27,8 +27,8 @@ Ext.define("AJ.view.company.CompanyListContext", {
                 action: "detail"
             },
             {
-                text: lang("show_jobs"),
-                action: "show_jobs"
+                text: lang("applied_job"),
+                action: "applied_job"
             }
         ];
         

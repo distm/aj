@@ -14,7 +14,11 @@ Ext.define("AJ.view.company.CompanyList", {
             {text: Langs.phone,      width: 120, dataIndex: "phone"},
             {text: Langs.reg_name,   width: 150, dataIndex: "registrant_name"},
             {text: Langs.reg_email,  width: 150, dataIndex: "registrant_email"},
-            {text: Langs.status,     width: 100, dataIndex: "status"},
+            {text: Langs.status,     width: 100, dataIndex: "status", 
+                renderer: function(v){
+                    return lang(v);
+                }
+            },
             {text: Langs.date_join,  width: 175, dataIndex: "date_create", xtype: "datecolumn", format: "d-M-Y H:i"}
         ];
         

@@ -17,7 +17,7 @@ Ext.define("AJ.view.desktop.MainTab", {
                 }
             }/**/,
             {
-                xtype: "companylist"
+                xtype: "seekerlist"
             }/**/
         ];
         

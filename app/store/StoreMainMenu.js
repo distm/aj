@@ -5,12 +5,12 @@ Ext.define("AJ.store.StoreMainMenu", {
         children: [
             {text: "Member", id: "member", expanded: true, 
                 children: [
-                    {text: lang("company"), id: "company", leaf: true},
-                    {text: lang("seeker"), id: "seeker", leaf: true}
+                    {text: lang("company"), id: "companylist", leaf: true},
+                    {text: lang("seeker"), id: "seekerlist", leaf: true}
                 ]
             },
-            {text: lang("statistic"), id: "statistic", leaf: true},
-            {text: lang("blog"), id: "blog", leaf: true}
+            {text: lang("statistic"), id: "statisticlist", leaf: true},
+            {text: lang("blog"), id: "panel-blog", leaf: true}
         ]
     }
 });

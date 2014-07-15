@@ -25,16 +25,14 @@ class Company extends API_Controller {
     
     function jobs()
     {
-        $start = (int)$this->input->post('start', TRUE);
-        $limit = (int)$this->input->post('limit', TRUE);
+        $start = (int)$this->input->get('start', TRUE);
+        $limit = (int)$this->input->get('limit', TRUE);
         if($limit === 0)
         {
             $limit = 25;
         }
         
-        $company_id = $this->input->post('company_id', TRUE);
-        $company_id = 1;
-        
+        $company_id = $this->input->get('company_id', TRUE);
         $jobs = $this->job_model->get_by_company($company_id, $limit, $start);
         $this->response(array(
             'data' => $jobs,
@@ -70,6 +68,18 @@ class Company extends API_Controller {
         $this->response(array(
             'success' => $save ? TRUE : FALSE,
             'message' => $save ? 'Data perusahaan tersimpan' : 'Data perusahaan gagal tersimpan'
+        ));
+    }
+    
+    function update_status()
+    {
+        $status = $this->input->post('status', TRUE);
+        $company_id = $this->input->post('company_id', TRUE);
+        
+        $update = $this->db->update('company', array('status'=>$status), array('company_id'=>$company_id));
+        echo json_encode(array(
+            'success' => $update,
+            'message' => ($update !== FALSE) ? 'Update status berhasil' : 'Status gagal diupdate'
         ));
     }
     

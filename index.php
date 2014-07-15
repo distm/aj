@@ -34,6 +34,7 @@
                 controllers: [
                     "Desktop",
                     "Company",
+                    "Seeker",
                     "Blog",
                     "Job"
                 ],
