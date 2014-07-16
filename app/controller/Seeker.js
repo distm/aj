@@ -3,13 +3,14 @@ Ext.define("AJ.controller.Seeker", {
 
     stores: [
         "StoreSeeker",
-        "StoreSeekerDetail"
+        "StoreSeekerBiodata"
     ],
 
     views: [
         "seeker.SeekerList",
         "seeker.SeekerListContext",
-        "seeker.SeekerDetail"
+        "seeker.SeekerDetail",
+        "seeker.SeekerDetailBiodata"
     ],
 
     init: function () {

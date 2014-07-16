@@ -45,7 +45,7 @@ class Seeker_model extends CI_Model {
                         ->where('seeker_id', $seeker_id)
                         ->get('experience');
         
-        return ($get && $get->num_rows()>0) ? $get->row_array() : FALSE;
+        return ($get && $get->num_rows()>0) ? $get->result_array() : FALSE;
     }
     
     function get_language_skill($seeker_id='')

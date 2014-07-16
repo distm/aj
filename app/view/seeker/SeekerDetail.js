@@ -5,26 +5,17 @@ Ext.define("AJ.view.seeker.SeekerDetail", {
     
     height: 450,
     width: 750,
-    layout: "fit",
+    layout: "accordion",
     maximizable: true,
     maximized: false,
     initComponent: function(){
         
         this.items = [
             {
-                xtype: "grid",
-                store: "StoreSeekerDetail",
-                columns: [
-                    {text: lang("field_name"),  dataIndex: "field_name",    width: 150},
-                    {text: lang("field_value"), dataIndex: "field_value",   flex: 1}
-                ],
-                features: [{
-                    ftype: "grouping",
-                    groupHeaderTpl: '{name}',
-                    hideGroupedHeader: true,
-                    startCollapsed: true,
-                    id: "seeker-detail-grouping"
-                }]
+                xtype: "seekerbiodata"
+            },
+            {
+                title: "Bar Foo"
             }
         ];
         this.callParent(arguments);

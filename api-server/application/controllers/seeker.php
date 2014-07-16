@@ -28,28 +28,67 @@ class Seeker extends API_Controller {
         ));
     }
     
-    function detail()
+    private function _detail_biodata()
     {
         $seeker_id = $this->input->get('seeker_id', TRUE);
-        $detail = $this->seeker_model->get_detail($seeker_id);
-        
-        echo '<pre>';
-        print_r($detail);
-        exit;
+        $detail = $this->seeker_model->get_biodata($seeker_id);
         
         if($detail)
         {
             $data = array();
+            foreach($detail as $f=>$v)
+            {
+                $editor = 'textfield';
+                if(preg_match('/(date|dob)/i', $f))
+                {
+                    $editor = 'datepicker';
+                }
+                if(strpos($f, 'reg_') !== FALSE)
+                {
+                    $editor = FALSE;
+                }
+                if(preg_match('/(gender|searchable|status)/i', $f))
+                {
+                    $editor = "combo-{$f}";
+                }
+                
+                array_push($data, array(
+                    'record_id' => $detail['seeker_id'],
+                    'field_name' => $f,
+                    'field_value' => $v,
+                    'editor' => $editor
+                ));
+            }
+            
             $this->response(array(
+                'success' => TRUE,
                 'data' => $data
             ));
         }
         else
         {
             $this->response(array(
-                'success' => $update,
-                'message' => ($update !== FALSE) ? 'Update status berhasil' : 'Status gagal diupdate'
+                'success' => TRUE,
+                'data' => array(),
+                'total' => 0
             ));
+        }
+    }
+    
+    function detail($task='biodata')
+    {
+        $method = "_detail_{$task}";
+        if(! $task || !method_exists($this, $method))
+        {
+            $this->response(array(
+                'success' => TRUE,
+                'data' => array(),
+                'total' => 0
+            ));
+        }
+        else
+        {
+            $this->{$method}();
         }
     }
     
