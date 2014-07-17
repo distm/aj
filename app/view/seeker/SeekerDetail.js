@@ -9,15 +9,23 @@ Ext.define("AJ.view.seeker.SeekerDetail", {
     maximizable: true,
     maximized: false,
     initComponent: function(){
+        Ext.apply(this, {
+            items: [
+                {xtype: "seekerpreference"},
+                {xtype: "seekerbiodata"},
+                {xtype: "seekerexperience"},
+                {xtype: "seekerlanguageskill"}
+            ],
+            buttons: [
+                {
+                    text: lang("btn_close"),
+                    handler: function(btn){
+                        btn.up("window").close();
+                    }
+                }
+            ]
+        });
         
-        this.items = [
-            {
-                xtype: "seekerbiodata"
-            },
-            {
-                title: "Bar Foo"
-            }
-        ];
         this.callParent(arguments);
     }
 });

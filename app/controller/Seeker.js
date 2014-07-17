@@ -3,14 +3,20 @@ Ext.define("AJ.controller.Seeker", {
 
     stores: [
         "StoreSeeker",
-        "StoreSeekerBiodata"
+        "StoreSeekerBiodata",
+        "StoreSeekerExperience",
+        "StoreSeekerLanguageSkill",
+        "StoreSeekerPreference"
     ],
 
     views: [
         "seeker.SeekerList",
         "seeker.SeekerListContext",
         "seeker.SeekerDetail",
-        "seeker.SeekerDetailBiodata"
+        "seeker.SeekerDetailBiodata",
+        "seeker.SeekerDetailExperience",
+        "seeker.SeekerDetailLanguageSkill",
+        "seeker.SeekerDetailPreference"
     ],
 
     init: function () {
@@ -29,6 +35,20 @@ Ext.define("AJ.controller.Seeker", {
             },
             "contextmenu-seeker [action='update-seeker-status']": {
                 click: this.updateSeekerStatus
+            },
+            
+            // seeker biodata
+            "seekerbiodata": {
+                edit: function(editor, e){
+                    if(e.record.dirty){
+                        var params = {
+                            record_id: e.record.get("record_id"),
+                            field_name: e.record.get("field_name"),
+                            field_value: e.value
+                        };
+                        console.log(params);
+                    }
+                }
             }
         
         });

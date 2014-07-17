@@ -3,6 +3,7 @@ Ext.define("AJ.view.seeker.SeekerDetailBiodata", {
     alias: "widget.seekerbiodata",
     id: "seekerbiodata",
     
+    title: lang("biodata"),
     store: "StoreSeekerBiodata",
     hideHeaders: true,
     selModel: {
@@ -64,6 +65,16 @@ Ext.define("AJ.view.seeker.SeekerDetailBiodata", {
                                 store: [
                                     ['1', lang("yes")],
                                     ['0', lang("no")]
+                                ]
+                            });
+                            break;
+                        case "combo-status":
+                            field = Ext.create("Ext.form.field.ComboBox", {
+                                typeAhead: true,
+                                triggerAction: 'all',
+                                store: [
+                                    ['active',  lang("active")],
+                                    ['pending', lang("pending")]
                                 ]
                             });
                             break;
