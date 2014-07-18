@@ -5,6 +5,7 @@ Ext.define("AJ.view.seeker.SeekerDetailPreference", {
     
     title: lang("preference"),
     store: "StoreSeekerPreference",
+    emptyText: lang("msg_grid_empty_text"),
     
     initComponent: function(){
         Ext.apply(this, {
@@ -15,15 +16,7 @@ Ext.define("AJ.view.seeker.SeekerDetailPreference", {
                 {text: lang("expected_salary"),  dataIndex: "expected_salary",  xtype: "numbercolumn",  format: "0,000",     align: "right", width: 150},
                 {text: lang("date_create"),      dataIndex: "date_create",      xtype: "datecolumn",    format: "d-m-Y H:i", hidden: true},
                 {text: lang("date_modified"),    dataIndex: "date_modified",    xtype: "datecolumn",    format: "d-m-Y H:i", hidden: true}
-            ],
-            
-            listeners: {
-                afterrender: function(grid){
-                    grid.getStore().load({
-                        params: {seeker_id: 2}
-                    });
-                }
-            }
+            ]
         });
         
         this.callParent(arguments);

@@ -6,7 +6,10 @@ Ext.define("AJ.controller.Seeker", {
         "StoreSeekerBiodata",
         "StoreSeekerExperience",
         "StoreSeekerLanguageSkill",
-        "StoreSeekerPreference"
+        "StoreSeekerPreference",
+        "StoreSeekerQualification",
+        "StoreSeekerReference",
+        "StoreSeekerSkill"
     ],
 
     views: [
@@ -16,13 +19,15 @@ Ext.define("AJ.controller.Seeker", {
         "seeker.SeekerDetailBiodata",
         "seeker.SeekerDetailExperience",
         "seeker.SeekerDetailLanguageSkill",
-        "seeker.SeekerDetailPreference"
+        "seeker.SeekerDetailPreference",
+        "seeker.SeekerDetailQualification",
+        "seeker.SeekerDetailReference",
+        "seeker.SeekerDetailSkill",
+        "job.AppliedBySeeker"
     ],
 
     init: function () {
         
-        Ext.widget("seeker-detail", {title: "Nurhadi Jogja"}).show();
-    
         this.control({
             // grid event
             "seekerlist": {
@@ -36,9 +41,15 @@ Ext.define("AJ.controller.Seeker", {
             "contextmenu-seeker [action='update-seeker-status']": {
                 click: this.updateSeekerStatus
             },
+            "contextmenu-seeker [action='applied_job']": {
+                click: this.showAppliedJob
+            },
             
-            // seeker biodata
-            "seekerbiodata": {
+            // seeker detail, biodata dll
+            "seekerdetail panel": {
+                activate: this.activateDetailSeekerTabs
+            },
+            "seekerdetail seekerbiodata": {
                 edit: function(editor, e){
                     if(e.record.dirty){
                         var params = {
@@ -51,19 +62,53 @@ Ext.define("AJ.controller.Seeker", {
                 }
             }
         
-        });
+        }); // end of control
+        
+        Ext.widget("jobappliedbyseeker", {
+                modal: true
+            }).show();
+        
+    },
+    
+    activateDetailSeekerTabs: function(tab){
+        var me = this;
+        
+        if(! tab.isActivated){
+            if(/grid/.test(tab.bodyCls)){
+                var seeker_id = me.selectedSeeker.get("seeker_id");
+                Ext.Function.defer(function(){
+                    tab.getStore().load({
+                        params: {seeker_id: seeker_id}
+                    });
+                }, 100);
+            }
+            tab.isActivated = true;
+        }
     },
     
     detailSeeker: function(){
-        var rec = this.selectedRecord,
-            win = Ext.getCmp("seeker-detail");
+        var rec = this.selectedSeeker,
+            win = Ext.getCmp("seekerdetail");
             
         if (!win) {
-            win = Ext.widget("seeker-detail");
+            win = Ext.widget("seekerdetail", {
+                modal: true
+            });
         }
 
         var name = Ext.String.trim(rec.get("first_name") +" "+ rec.get("last_name"));
         win.setTitle(name);
+        win.show();
+    },
+    
+    showAppliedJob: function(){
+        var win = Ext.getCmp("jobappliedbyseeker");
+        if(! win){
+            win = Ext.widget("jobappliedbyseeker", {
+                modal: true
+            });
+        }
+        
         win.show();
     },
     
@@ -74,7 +119,7 @@ Ext.define("AJ.controller.Seeker", {
             menu = Ext.widget("contextmenu-seeker");
         }
 
-        this.selectedRecord = record;
+        this.selectedSeeker = record;
         menu.on("beforeshow", function(){
             // set iconCls active status
             var status = record.get("status"),
@@ -89,7 +134,7 @@ Ext.define("AJ.controller.Seeker", {
     
     updateSeekerStatus: function(btn){
         var status = btn.id.replace("seeker-status-", ""),
-            rec = this.selectedRecord;
+            rec = this.selectedSeeker;
             
         Ext.Ajax.request({
             url: API_URL +"seeker/update-status",

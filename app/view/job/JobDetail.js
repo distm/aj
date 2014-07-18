@@ -6,6 +6,7 @@ Ext.define("AJ.view.job.JobDetail", {
     width: 400,
     height: 350,
     autoScroll: true,
+    constrainHeader: true,
     bodyStyle: {
         padding: "10px"
     },

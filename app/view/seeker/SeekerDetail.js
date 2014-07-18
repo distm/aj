@@ -1,20 +1,34 @@
 Ext.define("AJ.view.seeker.SeekerDetail", {
     extend: "Ext.window.Window",
-    alias: "widget.seeker-detail",
-    id: "seeker-detail",
+    alias: "widget.seekerdetail",
+    id: "seekerdetail",
     
-    height: 450,
-    width: 750,
-    layout: "accordion",
-    maximizable: true,
-    maximized: false,
     initComponent: function(){
         Ext.apply(this, {
+            height: 450,
+            width: 750,
+            layout: "fit",
+            maximizable: true,
+            maximized: false,
+            constrainHeader: true,
             items: [
-                {xtype: "seekerpreference"},
-                {xtype: "seekerbiodata"},
-                {xtype: "seekerexperience"},
-                {xtype: "seekerlanguageskill"}
+                {
+                    xtype: "tabpanel",
+                    activeTab: 0,
+                    border: 0,
+                    defaults: {
+                        border: 0
+                    },
+                    items: [
+                        {xtype: "seekerbiodata"},
+                        {xtype: "seekerexperience"},
+                        {xtype: "seekerlanguageskill"},
+                        {xtype: "seekerpreference"},
+                        {xtype: "seekerqualification"},
+                        {xtype: "seekerreference"},
+                        {xtype: "seekerskill"}
+                    ]
+                }
             ],
             buttons: [
                 {

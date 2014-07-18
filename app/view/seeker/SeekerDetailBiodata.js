@@ -29,6 +29,9 @@ Ext.define("AJ.view.seeker.SeekerDetailBiodata", {
                     if(rec.get("field_name") === "searchable"){
                         return (v ? lang("yes") : lang("no"));
                     }
+                    if(rec.get("field_name") === "pics"){
+                        return '<img src="'+ v +'" style="max-height:50px;width:auto;">';
+                    }
                     if(rec.get("editor") === "datepicker"){
                         return Ext.util.Format.date(v, 'd-m-Y');
                     }

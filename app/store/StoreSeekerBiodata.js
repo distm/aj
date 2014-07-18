@@ -8,7 +8,6 @@ Ext.define("AJ.store.StoreSeekerBiodata", {
         {name: "editor",        type: "string"}
     ],
     
-    autoLoad: true,
     proxy: {
         type: "ajax",
         url: API_URL +"seeker/detail/biodata",

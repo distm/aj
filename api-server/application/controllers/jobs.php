@@ -32,4 +32,23 @@ class Jobs extends API_Controller {
         ));
     }
         
+    function applied()
+    {
+        $limit = abs((int)$this->input->get('limit', TRUE));
+        $start = abs((int)$this->input->get('start', TRUE));
+        
+        if(! $limit)
+        {
+            $limit = 25;
+        }
+        
+        $seeker_id = (int)$this->input->get('seeker_id', TRUE);
+        $applied = $this->job_model->get_applied($seeker_id, $limit, $start);
+        
+        $this->response(array(
+            'data' => $applied,
+            'total' => $this->job_model->total_applied($seeker_id)
+        ));
+    }
+        
 }

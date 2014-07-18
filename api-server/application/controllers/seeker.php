@@ -36,6 +36,11 @@ class Seeker extends API_Controller {
         if($detail)
         {
             $data = array();
+            
+            $pics = $detail['pics'];
+            unset($detail['pics']);
+            $detail = array_merge(array('pics'=>$pics), $detail);
+            
             foreach($detail as $f=>$v)
             {
                 $editor = 'textfield';
@@ -101,6 +106,39 @@ class Seeker extends API_Controller {
     {
         $seeker_id = $this->input->get('seeker_id', TRUE);
         $detail = $this->seeker_model->get_preference($seeker_id);
+        
+        $this->response(array(
+            'success' => TRUE,
+            'data' => $detail
+        ));
+    }
+    
+    private function _detail_qualification()
+    {
+        $seeker_id = $this->input->get('seeker_id', TRUE);
+        $detail = $this->seeker_model->get_qualification($seeker_id);
+        
+        $this->response(array(
+            'success' => TRUE,
+            'data' => $detail
+        ));
+    }
+    
+    private function _detail_reference()
+    {
+        $seeker_id = $this->input->get('seeker_id', TRUE);
+        $detail = $this->seeker_model->get_reference($seeker_id);
+        
+        $this->response(array(
+            'success' => TRUE,
+            'data' => $detail
+        ));
+    }
+    
+    private function _detail_skill()
+    {
+        $seeker_id = $this->input->get('seeker_id', TRUE);
+        $detail = $this->seeker_model->get_skill($seeker_id);
         
         $this->response(array(
             'success' => TRUE,
