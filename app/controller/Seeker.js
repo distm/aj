@@ -9,7 +9,8 @@ Ext.define("AJ.controller.Seeker", {
         "StoreSeekerPreference",
         "StoreSeekerQualification",
         "StoreSeekerReference",
-        "StoreSeekerSkill"
+        "StoreSeekerSkill",
+        "StoreJobAppliedBySeeker"
     ],
 
     views: [
@@ -63,11 +64,6 @@ Ext.define("AJ.controller.Seeker", {
             }
         
         }); // end of control
-        
-        Ext.widget("jobappliedbyseeker", {
-                modal: true
-            }).show();
-        
     },
     
     activateDetailSeekerTabs: function(tab){
@@ -102,14 +98,24 @@ Ext.define("AJ.controller.Seeker", {
     },
     
     showAppliedJob: function(){
-        var win = Ext.getCmp("jobappliedbyseeker");
+        var rec = this.selectedSeeker,
+            win = Ext.getCmp("jobappliedbyseeker");
+        
         if(! win){
             win = Ext.widget("jobappliedbyseeker", {
                 modal: true
             });
         }
         
-        win.show();
+        win.show(null, function(){
+            var grid = win.down("grid"),
+                store = grid.getStore();
+            
+            store.on("beforeload", function(s){
+                s.proxy.extraParams.seeker_id = rec.get("seeker_id");
+            });
+            store.load();
+        });
     },
     
     showContext: function (view, record, item, index, e) {

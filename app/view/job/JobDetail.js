@@ -3,8 +3,8 @@ Ext.define("AJ.view.job.JobDetail", {
     alias: "widget.jobdetail",
     id: "jobdetail",
     
-    width: 400,
-    height: 350,
+    width: 500,
+    height: 500,
     autoScroll: true,
     constrainHeader: true,
     bodyStyle: {

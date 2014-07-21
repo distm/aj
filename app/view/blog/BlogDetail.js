@@ -16,6 +16,7 @@ Ext.define("AJ.view.blog.BlogDetail", {
         "</div>",
         "<p><strong>"+ lang("summary") +":</strong></p>",
         "<div>{summary}</div>",
+        "<p>&nbsp;</p>",
         "<p><strong>"+ lang("content") +":</strong></p>",
         "<div>{blog_content}</div>"
     ],

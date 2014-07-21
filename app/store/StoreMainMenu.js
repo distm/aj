@@ -9,7 +9,7 @@ Ext.define("AJ.store.StoreMainMenu", {
                     {text: lang("seeker"), id: "seekerlist", leaf: true}
                 ]
             },
-            {text: lang("statistic"), id: "statisticlist", leaf: true},
+            {text: lang("statistic"), id: "panel-statistic", leaf: true},
             {text: lang("blog"), id: "panel-blog", leaf: true}
         ]
     }

@@ -42,7 +42,7 @@ class Job_model extends CI_Model {
         $select = array(
             'ja.job_apply_id, ja.job_id, ja.date_create',
             'j.title AS job_title, j.location',
-            'c.name, c.phone'
+            'c.name AS company_name, c.phone'
         );
         
         // get

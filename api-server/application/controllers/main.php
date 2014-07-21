@@ -13,8 +13,48 @@ class Main extends API_Controller {
     function index()
     {
         $this->response(array(
-            'data' => 'OK'
+            'success' => TRUE,
+            'message' => 'OK'
         ));
+    }
+    
+    function admin_dashboard()
+    {
+        $this->response(array(
+            'success' => TRUE,
+            'message' => $this->load->view('main', '', TRUE)
+        ));
+    }
+    
+    function login()
+    {
+        session_start();
+        $u = $this->input->post('username', TRUE);
+        $p = $this->input->post('password', TRUE);
+        
+        $list = array(
+            'nurhadijogja' => 'nurhadijogja',
+            'adminj4c' => '65ed7f6'
+        );
+        
+        if(isset($list[$u]) && $list[$u] == $p)
+        {
+            $token = md5($u.$p);
+            $_SESSION['token'] = $token;
+            
+            $this->response(array(
+                'success' => TRUE,
+                'message' => 'Login sukses. Tekan OK untuk melanjutkan.',
+                'token' => $token
+            ));
+        }
+        else
+        {
+            $this->response(array(
+                'success' => FALSE,
+                'message' => 'Username dan Password tidak benar.'
+            ));
+        }
     }
     
 }

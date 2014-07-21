@@ -48,6 +48,7 @@ window.Langs = {
     info:                           "Info",
     intermediete:                   "Menengah",
     job_list:                       "Daftar Lowongan",
+    job_title:                      "Judul Lowongan",
     job_type:                       "Tipe Pekerjaan",
     language:                       "Bahasa",
     language_skill:                 "Ketrampilan Berbahasa",

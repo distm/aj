@@ -6,8 +6,9 @@ Ext.define("AJ.view.blog.BlogForm", {
     maximizable: true,
     maximized: false,
     layout: "fit",
-    width: 600,
-    height: 300,
+    width: 800,
+    height: 600,
+    modal: true,
     
     initComponent: function(){
         
@@ -46,6 +47,7 @@ Ext.define("AJ.view.blog.BlogForm", {
                         name: "blog_content",
                         fieldLabel: lang("content"),
                         labelAlign: "top",
+                        height: 325,
                         plugins: [
                             new Ext.create("Ext.ux.form.HtmlEditor.imageUpload", {
                                 enableContextMenu: true
@@ -63,7 +65,7 @@ Ext.define("AJ.view.blog.BlogForm", {
         
         this.buttons = [
             {
-                text: lang("btn_ok"),
+                text: lang("btn_save"),
                 action: "save_blog"
             },
             {

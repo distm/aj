@@ -11,6 +11,9 @@ Ext.define("AJ.controller.Blog", {
 
         this.control({
             "bloglist": {
+                afterrender: function(grid){
+                    grid.getStore().load();
+                },
                 itemcontextmenu: this.showContext,
                 selectionchange: function(sm, record) {
                     if(record[0]){
