@@ -43,10 +43,8 @@ Ext.onReady(function(){
                         clientValidation: true,
                         url: API_URL +"main/login",
                         success: function(f, action) {
-                            form.setLoading(false);
-                            Ext.Msg.alert('Success', action.result.message, function(){
-                                location.href = BASE_URL +"?token="+ action.result.token;
-                            });
+                            form.setLoading("Redirecting...");
+                            location.href = BASE_URL +"?token="+ action.result.token;
                         },
                         failure: function(f, action) {
                             form.setLoading(false);

@@ -9,7 +9,8 @@ Ext.Loader.setConfig({
 Ext.application({
     requires: [
         "Ext.container.Viewport",
-        "Ext.ux.form.HtmlEditor.imageUpload"
+        "Ext.ux.form.HtmlEditor.imageUpload",
+        "Ext.ux.form.field.Month"
     ],
     name: "AJ",
     appFolder: "app",
@@ -19,6 +20,7 @@ Ext.application({
         "Company",
         "Seeker",
         "Blog",
+        "Statistic",
         "Job"
     ],
     

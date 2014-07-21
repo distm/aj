@@ -28,7 +28,6 @@ Ext.define("AJ.store.StoreSeeker", {
         {name: "date_modified",   type: "date",     format: "c"}
     ],
     
-    autoLoad: true,
     proxy: {
         type: "ajax",
         url: API_URL +"seeker",    

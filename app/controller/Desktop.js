@@ -10,9 +10,9 @@ Ext.define("AJ.controller.Desktop", {
     views: [
         "desktop.MainMenu",
         "desktop.MainTab",
+        "desktop.ComboYear",
         "company.CompanyList",
         "seeker.SeekerList",
-        "statistic.Panel",
         "blog.Panel",
         "blog.BlogList",
         "blog.BlogDetail"

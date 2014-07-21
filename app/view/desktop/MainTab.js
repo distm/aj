@@ -30,10 +30,7 @@ Ext.define("AJ.view.desktop.MainTab", {
                             });
                         }
                     }
-                }/**,
-                {
-                    xtype: "seekerlist"
-                }/**/
+                }
             ]
         });
         
