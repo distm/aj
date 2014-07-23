@@ -25,7 +25,10 @@ Ext.application({
     ],
     
     launch: function() {
+        // check token
+        this.checkToken();
         
+        // create viewport
         Ext.create("Ext.container.Viewport", {
             layout: "border",
             items: [
@@ -68,7 +71,24 @@ Ext.application({
                     xtype: "maintab"
                 }
             ]
-        });
+        }); // end of viewport
+    }, // end of launch
+    
+    checkToken: function(){
+        setInterval(function(){
+            Ext.Ajax.request({
+                url: API_URL +"main/check-token",
+                success: function(response, opts) {
+                    var obj = Ext.decode(response.responseText);
+                    if(obj.success === false){
+                        location.href = BASE_URL +"?q=Logout";
+                    }
+                },
+                failure: function(response, opts) {
+                    location.href = BASE_URL +"?q=Logout";
+                }
+            });
         
+        }, (2*60*1000));
     }
 });

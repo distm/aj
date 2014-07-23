@@ -19,7 +19,7 @@ class Company extends API_Controller {
         $companies = $this->company_model->companies();
         $this->response(array(
             'data' => $companies,
-            'total' => 1
+            'total' => $this->db->count_all('company')
         ));
     }
     

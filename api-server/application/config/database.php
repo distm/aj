@@ -48,13 +48,20 @@
 $active_group = 'default';
 $active_record = TRUE;
 
+$db_sufix = 'id';
+if(isset($_SESSION['location']) && !empty($_SESSION['location']))
+{
+    $db_sufix = $_SESSION['location'];
+}
+
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'apmserver12';
-$db['default']['database'] = 'geblek';
+//$db['default']['database'] = 'geblek';
+$db['default']['database'] = 'jobcaree_'. $db_sufix;
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
+$db['default']['pconnect'] = FALSE;
 $db['default']['db_debug'] = TRUE;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';

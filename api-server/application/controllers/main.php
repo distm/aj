@@ -26,11 +26,19 @@ class Main extends API_Controller {
         ));
     }
     
+    function check_token()
+    {
+        $this->response(array(
+            'success' => (isset($_SESSION['token']) && $_SESSION['token'] != '') ? TRUE : FALSE,
+            'token' => @$_SESSION['token']
+        ));
+    }
+    
     function login()
     {
-        session_start();
         $u = $this->input->post('username', TRUE);
         $p = $this->input->post('password', TRUE);
+        $l = $this->input->post('location', TRUE);
         
         $list = array(
             'nurhadijogja' => 'nurhadijogja',
@@ -41,6 +49,7 @@ class Main extends API_Controller {
         {
             $token = md5($u.$p);
             $_SESSION['token'] = $token;
+            $_SESSION['location'] = $l;
             
             $this->response(array(
                 'success' => TRUE,

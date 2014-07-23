@@ -39,29 +39,17 @@ class API_Controller extends CI_Controller {
         else
         {
             $response = array_merge(array(
-                'success' => FALSE,
-                'message' => 'Data not found.'
+                'success' => FALSE
             ), $data);
             
-            // remove message
-            if($response['success'] === TRUE)
+            if(isset($data['success']))
             {
-                if($response['message'] === 'Data not found.')
-                {
-                    unset($response['message']);
-                }
+                unset($data['success']);
             }
-            else
+            
+            if(count($data) == 0)
             {
-                if((isset($response['data']) && $response['data'] !== FALSE) || count($response) > 2)
-                {
-                    $response['success'] = TRUE;
-                    unset($response['message']);
-                }
-                else
-                {
-                    unset($response['data']);
-                }
+                $response['message'] = 'No data found.';
             }
             
             echo json_encode($response, 1);

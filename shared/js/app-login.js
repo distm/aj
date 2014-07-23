@@ -27,6 +27,22 @@ Ext.onReady(function(){
                         inputType: "password",
                         fieldLabel: "Password",
                         allowBlank: false
+                    },
+                    {
+                        xtype: "combobox",
+                        queryMode: "local",
+                        displayField: "caption",
+                        valueField: "name",
+                        fieldLabel: "Lokasi",
+                        value: "id",
+                        name: "location",
+                        store: Ext.create("Ext.data.JsonStore", {
+                            fields: ["name", "caption"],
+                            data: [
+                                {name: "au", caption: "Australia"},
+                                {name: "id", caption: "Indonesia"}
+                            ]
+                        })
                     }
                 ]
             }
@@ -50,10 +66,10 @@ Ext.onReady(function(){
                             form.setLoading(false);
                             switch (action.failureType) {
                                 case Ext.form.action.Action.CLIENT_INVALID:
-                                    Ext.Msg.alert(lang("failure"), lang('msg_client_invalid'));
+                                    Ext.Msg.alert(lang("failure"), lang("msg_client_invalid"));
                                     break;
                                 case Ext.form.action.Action.CONNECT_FAILURE:
-                                    Ext.Msg.alert(lang("failure"), lang('msg_connect_failure'));
+                                    Ext.Msg.alert(lang("failure"), lang("msg_connect_failure"));
                                     break;
                                 case Ext.form.action.Action.SERVER_INVALID:
                                    Ext.Msg.alert(lang("failure"), action.result.message);
