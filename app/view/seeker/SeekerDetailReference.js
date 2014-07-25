@@ -19,6 +19,14 @@ Ext.define("AJ.view.seeker.SeekerDetailReference", {
                 {text: lang("relationship"),    dataIndex: "relationship",  width: 150},
                 {text: lang("date_create"),     dataIndex: "date_create",   xtype: "datecolumn",    format: "d-m-Y H:i", hidden: true},
                 {text: lang("date_modified"),   dataIndex: "date_modified", xtype: "datecolumn",    format: "d-m-Y H:i", hidden: true}
+            ],
+            
+            dockedItems: [
+                {
+                    xtype: "pagingtoolbar",
+                    store: "StoreSeekerReference",
+                    dock: "bottom"
+                }
             ]
         });
         

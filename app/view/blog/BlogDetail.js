@@ -20,7 +20,7 @@ Ext.define("AJ.view.blog.BlogDetail", {
         "<p><strong>"+ lang("content") +":</strong></p>",
         "<div>{blog_content}</div>"
     ],
-    startingMarkup: "Please select a blog to see details!",
+    startingMarkup: lang("msg_please_select_blog"),
     
     initComponent: function(){
         

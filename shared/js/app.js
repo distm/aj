@@ -50,7 +50,7 @@ Ext.application({
                     },
                     items: [
                         {
-                            html: "<h2 style='padding:0;margin:0'>Left</h2>",
+                            html: "<h2 style='padding:0;margin:0'>Admin, <span style='font-size:14px'>"+ lang("country_"+LOC_ID.toUpperCase()) +"</span></h2>",
                             columnWidth: 1
                         },
                         {

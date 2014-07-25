@@ -4,6 +4,7 @@ Ext.define("AJ.view.company.CompanyJobsList", {
     id: "company-jobslist",
     
     store: "StoreCompanyJobs",
+    emptyText: lang("msg_grid_empty_text"),
     
     initComponent: function(){
         

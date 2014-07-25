@@ -23,7 +23,7 @@ class Blog extends API_Controller {
         
         $blog = $this->blog_model->blog($limit, $start);
         $this->response(array(
-            'data' => $blog,
+            'data' => $blog ? $blog : array(),
             'total' => $this->db->count_all('blog')
         ));
     }

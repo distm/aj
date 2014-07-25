@@ -5,6 +5,7 @@ Ext.define("AJ.view.seeker.SeekerList", {
     
     title: lang("seeker"),
     store: "StoreSeeker",
+    emptyText: lang("msg_grid_empty_text"),
     
     initComponent: function(){
         this.columns = [

@@ -5,6 +5,8 @@ Ext.define("AJ.view.company.CompanyList", {
     
     title: Langs.company,
     store: "StoreCompany",
+    emptyText: lang("msg_grid_empty_text"),
+    
     initComponent: function(){
         
         // define columns

@@ -19,6 +19,14 @@ Ext.define("AJ.view.seeker.SeekerDetailQualification", {
                 {text: lang("date_graduated"),  dataIndex: "date_graduated", xtype: "datecolumn",    format: "d-m-Y",     width: 130},
                 {text: lang("date_create"),     dataIndex: "date_create",    xtype: "datecolumn",    format: "d-m-Y H:i", hidden: true},
                 {text: lang("date_modified"),   dataIndex: "date_modified",  xtype: "datecolumn",    format: "d-m-Y H:i", hidden: true}
+            ],
+            
+            dockedItems: [
+                {
+                    xtype: "pagingtoolbar",
+                    store: "StoreSeekerQualification",
+                    dock: "bottom"
+                }
             ]
         });
         

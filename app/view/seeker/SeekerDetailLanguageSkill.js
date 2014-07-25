@@ -16,6 +16,14 @@ Ext.define("AJ.view.seeker.SeekerDetailLanguageSkill", {
                 {text: lang("written"),         dataIndex: "written",       width: 120, align: "right"},
                 {text: lang("date_create"),     dataIndex: "date_create",   xtype: "datecolumn", format: "d-m-Y H:i", hidden: true},
                 {text: lang("date_modified"),   dataIndex: "date_modified", xtype: "datecolumn", format: "d-m-Y H:i", hidden: true}
+            ],
+            
+            dockedItems: [
+                {
+                    xtype: "pagingtoolbar",
+                    store: "StoreSeekerLanguageSkill",
+                    dock: "bottom"
+                }
             ]
         });
         

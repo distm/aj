@@ -4,6 +4,7 @@ Ext.define("AJ.view.blog.BlogList", {
     id: "bloglist",
     
     store: "StoreBlog",
+    emptyText: lang("msg_grid_empty_text"),
     
     initComponent: function(){
         

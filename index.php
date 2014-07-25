@@ -1,9 +1,10 @@
 <?php 
 session_start();
+$base_url = "http://{$_SERVER['HTTP_HOST']}/";
 
 // check token
 $logged_in = FALSE;
-if(isset($_SESSION['token']) && $_SESSION['token']!='' && $_SESSION['token']==$_GET['token'])
+if(isset($_SESSION['token']) && @$_SESSION['token']!='' && @$_SESSION['token']==$_GET['token'])
 {
     $logged_in = TRUE;
 }
@@ -15,7 +16,6 @@ else
 // logout
 if(isset($_GET['q']) && strtolower($_GET['q']) == 'logout')
 {
-    $base_url = 'http://'. $_SERVER['HTTP_HOST'] .'/aj';
     session_destroy();
     header('Location: '. $base_url);
 }
@@ -31,17 +31,14 @@ if(isset($_GET['q']) && strtolower($_GET['q']) == 'logout')
     </head>
     <body>
         <script type="text/javascript">
-            var BASE_URL = location.protocol +"//"+ location.host +"/aj/",
+            var BASE_URL = "<?php echo $base_url; ?>",
                 API_URL = BASE_URL +"api-server/",
+                LOC_ID = "<?php echo @$_SESSION['location']; ?>",
                 TOKEN = <?php echo (isset($_SESSION['token']) && $_SESSION['token']!='' ? '"'.$_SESSION['token'].'"' : 'false'); ?>;
         </script>
         <script type="text/javascript" src="ext4/ext-all.js"></script>
         <script type="text/javascript" src="ext4/locale/ext-lang-id.js"></script>
         <script type="text/javascript" src="shared/js/lang-id.js"></script>
-        <?php if(! $logged_in): ?>
-            <script type="text/javascript" src="shared/js/app-login.js"></script>
-        <?php else: ?>
-            <script type="text/javascript" src="shared/js/app.js"></script>
-        <?php endif; ?>
+        <script type="text/javascript" src="shared/js/<?php echo (! $logged_in ? 'app-login.js' : 'app.js'); ?>"></script>
     </body>
 </html>

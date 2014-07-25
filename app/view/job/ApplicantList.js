@@ -4,7 +4,9 @@ Ext.define("AJ.view.job.ApplicantList", {
     id: "applicantlist",
     
     title: lang("applicant_list"),
-    store: "StoreApplicant",    
+    store: "StoreApplicant",
+    emptyText: lang("msg_grid_empty_text"),
+    
     initComponent: function(){
         
         this.columns = [

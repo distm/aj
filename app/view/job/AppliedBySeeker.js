@@ -16,6 +16,7 @@ Ext.define("AJ.view.job.AppliedBySeeker", {
                     xtype: "gridpanel",
                     border: 0,
                     store: "StoreJobAppliedBySeeker",
+                    emptyText: lang("msg_grid_empty_text"),
                     columns: [
                         {xtype: "rownumberer", width: 45},
                         {text: lang("job_apply_id"), dataIndex: "job_apply_id", hidden: true},

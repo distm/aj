@@ -1,12 +1,13 @@
 <?php
-
 require_once 'thumbnailer/ThumbLib.inc.php';
 
 // change these parameters to fit your server config
-$base_url           = "http://localhost/aj/";
+$base_url           = "http://{$_SERVER['HTTP_HOST']}/";
+$base_url           = str_replace('admin.', '', $base_url);
+
 $allowedFormats     = "jpg,jpeg,gif,png";                   // Allowed image formats
 $maxSize            = "102400";                             // Max image size. 10485760 = 10MB
-$imagesPath         = "../../../blog-assets/images/";       // path where the files will be uploaded to the server
+$imagesPath         = "../../../../assets/blog/images/";    // path where the files will be uploaded to the server
 $imagesThumbsPath   = $imagesPath ."thumbs/";               // path where the image thumbs will be uploaded to the server
 $imagesTumbsUrl     = $base_url . str_replace('../', '', $imagesThumbsPath);
 $imagesUrl          = $base_url . str_replace('../', '', $imagesPath);
@@ -21,7 +22,6 @@ if(isset($_REQUEST['action']))
             break;
 
         case 'crop':
-
             $imageSrc = isset($_REQUEST["image"]) ? ($_REQUEST["image"]) : '';
             $width = isset($_REQUEST["width"]) ? intval($_REQUEST["width"]) : 0;
             $height = isset($_REQUEST["height"]) ? intval($_REQUEST["height"]) : 0;

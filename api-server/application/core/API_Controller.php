@@ -51,6 +51,10 @@ class API_Controller extends CI_Controller {
             {
                 $response['message'] = 'No data found.';
             }
+            elseif(count($data) > 0)
+            {
+            	$response['success'] = TRUE;
+            }
             
             echo json_encode($response, 1);
         }

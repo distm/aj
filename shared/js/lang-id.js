@@ -18,6 +18,8 @@ window.Langs = {
     contract:                       "Kontrak",
     contract_duration:              "Durasi Kontrak",
     country:                        "Country",
+    country_AU:                     "Australia",
+    country_ID:                     "Indonesia",
     city:                           "Kota",
     date:                           "Tanggal",
     date_apply:                     "Tanggal Lamar",
@@ -123,6 +125,7 @@ window.Langs = {
     btn_create_new_blog:            "Buat Blog Baru",
     btn_delete:                     "Hapus",
     btn_edit:                       "Edit",
+    btn_reload:                     "Muat Ulang",
     btn_save:                       "Simpan",
     btn_save_change:                "Simpan Perubahan",
     btn_submit:                     "Kirim",
@@ -133,6 +136,7 @@ window.Langs = {
     msg_client_invalid:             "Beberapa isian tidak benar.",
     msg_connect_failure:            "Koneksi server mengalami gangguan.",
     msg_grid_empty_text:            "Tidak ada data yang dapat ditampilkan.",
+    msg_please_select_blog:         "Silahkan klik salah satu artikel untuk menampilkan detail artikel.",
     msg_server_error:               "Server mengalami masalah.",
     msg_sure_for_deletion:          "Yakin akan menghapus data ini?"
 };

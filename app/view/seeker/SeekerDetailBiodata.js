@@ -30,7 +30,10 @@ Ext.define("AJ.view.seeker.SeekerDetailBiodata", {
                         return (v ? lang("yes") : lang("no"));
                     }
                     if(rec.get("field_name") === "pics"){
-                        return '<img src="'+ v +'" style="max-height:50px;width:auto;">';
+                        var src = BASE_URL.replace("admin", LOC_ID);                        
+                            src = src +"test/static/s/"+ rec.get("record_id") +"/"+ v;
+                            
+                        return (v != '') ? '<img src="'+ src +'" style="max-height:50px;width:auto;">' : '';
                     }
                     if(rec.get("editor") === "datepicker"){
                         return Ext.util.Format.date(v, 'd-m-Y');

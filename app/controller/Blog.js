@@ -12,7 +12,9 @@ Ext.define("AJ.controller.Blog", {
         this.control({
             "bloglist": {
                 afterrender: function(grid){
-                    grid.getStore().load();
+                    Ext.Function.defer(function(){
+                        grid.getStore().load();
+                    }, 100);
                 },
                 itemcontextmenu: this.showContext,
                 selectionchange: function(sm, record) {

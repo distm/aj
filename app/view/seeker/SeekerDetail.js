@@ -5,8 +5,8 @@ Ext.define("AJ.view.seeker.SeekerDetail", {
     
     initComponent: function(){
         Ext.apply(this, {
-            height: 450,
-            width: 750,
+            height: 500,
+            width: 850,
             layout: "fit",
             maximizable: true,
             maximized: false,

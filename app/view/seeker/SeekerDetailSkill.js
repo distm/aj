@@ -15,6 +15,14 @@ Ext.define("AJ.view.seeker.SeekerDetailSkill", {
                 {text: lang("proficiency"),     dataIndex: "proficiency",   width: 150,          renderer: lang},
                 {text: lang("date_create"),     dataIndex: "date_create",   xtype: "datecolumn", format: "d-m-Y H:i", hidden: true},
                 {text: lang("date_modified"),   dataIndex: "date_modified", xtype: "datecolumn", format: "d-m-Y H:i", hidden: true}
+            ],
+            
+            dockedItems: [
+                {
+                    xtype: "pagingtoolbar",
+                    store: "StoreSeekerSkill",
+                    dock: "bottom"
+                }
             ]
         });
         
