@@ -1,15 +1,15 @@
 <h2>Administrator Job4Career.Com</h2>
 
-<p>Anda dapat memanage data Perusahaan, Seeker, Statistik dan Blog melalui menu yand ada di sebelah kiri.</p>
+<p>Anda dapat memanage data Perusahaan, Seeker, Statistik dan Blog melalui menu yang berada di sebelah kiri.</p>
 <ul>
     <li style="padding-bottom:15px">
         <strong>Perusahaan</strong><br />
-        Menu ini berfungsi untuk memanage data Perusahaan, diantaranya melihat data-data perusahaan, 
+        Menu ini berfungsi untuk memanage data Perusahaan, diantaranya: melihat data-data perusahaan, 
         mengupdate status perusahaan, melihat detail perusahaan dan melihat daftar lowongan yang telah dipublish oleh setiap perusahaan.
     </li>
     
     <li style="padding-bottom:15px">
-        <strong>Seeker</strong><br />
+        <strong>Seeker (Pencari Kerja)</strong><br />
         Menu ini berfungsi untuk memanage data Seeker. Daftar seeker, detail seeker dan daftar lowongan yang pernah diapply oleh seeker.
     </li>
     

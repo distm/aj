@@ -55,9 +55,8 @@ if(isset($_SESSION['location']) && !empty($_SESSION['location']))
 }
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'apmserver12';
-//$db['default']['database'] = 'geblek';
+$db['default']['username'] = 'jobcaree_user1';
+$db['default']['password'] = '1st_password';
 $db['default']['database'] = 'jobcaree_'. $db_sufix;
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

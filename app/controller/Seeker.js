@@ -52,14 +52,13 @@ Ext.define("AJ.controller.Seeker", {
             },
             "seekerdetail seekerbiodata": {
                 edit: function(editor, e){
-                    e.record.reject();
-                    return false;
                     if(e.record.dirty){
                         var params = {
                             record_id: e.record.get("record_id"),
                             field_name: e.record.get("field_name"),
                             field_value: e.value
                         };
+                        console.log(params);
                     }
                 }
             }

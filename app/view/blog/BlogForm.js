@@ -9,6 +9,7 @@ Ext.define("AJ.view.blog.BlogForm", {
     width: 800,
     height: 600,
     modal: true,
+    constrainHeader: true,
     
     initComponent: function(){
         

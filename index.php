@@ -4,7 +4,7 @@ $base_url = "http://{$_SERVER['HTTP_HOST']}/";
 
 // check token
 $logged_in = FALSE;
-if(isset($_SESSION['token']) && @$_SESSION['token']!='' && @$_SESSION['token']==$_GET['token'])
+if(isset($_SESSION['token']) && $_SESSION['token']!='' && $_SESSION['token']==$_GET['token'])
 {
     $logged_in = TRUE;
 }
@@ -16,6 +16,7 @@ else
 // logout
 if(isset($_GET['q']) && strtolower($_GET['q']) == 'logout')
 {
+    session_start();
     session_destroy();
     header('Location: '. $base_url);
 }

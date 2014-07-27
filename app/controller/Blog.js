@@ -12,9 +12,7 @@ Ext.define("AJ.controller.Blog", {
         this.control({
             "bloglist": {
                 afterrender: function(grid){
-                    Ext.Function.defer(function(){
-                        grid.getStore().load();
-                    }, 100);
+                    grid.getStore().load();
                 },
                 itemcontextmenu: this.showContext,
                 selectionchange: function(sm, record) {
@@ -145,6 +143,7 @@ Ext.define("AJ.controller.Blog", {
             mode = form.down("[name='mode']").getValue();
         }
         
+        form.setLoading("Menyimpan...");
         form.submit({
             clientValidation: true,
             url: API_URL + "blog/save",
@@ -152,6 +151,7 @@ Ext.define("AJ.controller.Blog", {
                 mode: mode
             },
             success: function(frm, action) {
+            	form.setLoading(false);
                 Ext.Msg.alert('Success', action.result.message, function() {
                     win.hide();
                     Ext.getCmp("bloglist").getStore().reload();
@@ -161,6 +161,7 @@ Ext.define("AJ.controller.Blog", {
                 });
             },
             failure: function(frm, action) {
+            	form.setLoading(false);
                 switch (action.failureType) {
                     case Ext.form.action.Action.CLIENT_INVALID:
                         Ext.Msg.alert(lang("failure"), lang("msg_client_invalid"));

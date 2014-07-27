@@ -18,7 +18,7 @@ class Statistic_model extends CI_Model {
         
         $sql = "SELECT count(*) AS nums, date_format(date_create, '{$format}') AS period ".
                "FROM {$table} WHERE date_format(date_create, '{$format_select}')='{$like}' ".
-               "GROUP BY period ORDER BY period";
+               "GROUP BY period ORDER BY period ASC";
         
         $get = $this->db->query($sql);
         return ($get && $get->num_rows()>0) ? $get->result_array() : FALSE;
@@ -52,12 +52,14 @@ class Statistic_model extends CI_Model {
         $data = array();
         foreach($result as $period=>$row)
         {
-            $data[] = array(
+            $data[$period] = array(
                 'period' => $period,
                 'company' => (int)@$row['company'],
                 'seeker' => (int)@$row['seeker']
             );
         }
+        
+        sort($data);
         
         return (count($data) > 0) ? $data : FALSE;
     }

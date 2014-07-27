@@ -53,9 +53,7 @@ Ext.define("AJ.controller.Desktop", {
                 // load store on first activation
                 tab.on("activate", function(){
                     if(tab.isXType("grid")){
-                        Ext.Function.defer(function(){
-                            tab.getStore().load();
-                        }, 100);
+                        tab.getStore().load();
                     }
                 }, this, {single: true});
                 
